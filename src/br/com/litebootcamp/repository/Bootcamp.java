@@ -2,12 +2,9 @@ package br.com.litebootcamp.repository;
 
 import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.Set;
 
-import br.com.litebootcamp.dominio.Conteudo;
-
-public class Bootcamp extends Conteudo {
+public class Bootcamp {
 
 	private String nome;
 	private String descricao;
@@ -17,10 +14,10 @@ public class Bootcamp extends Conteudo {
     private final LocalDate dataFinal = dataInicial.plusDays(45);
 	
 	private Set<Desenvolvedor> devsInscritos = new HashSet<>();
-	private Set<Conteudo> conteudos = new LinkedHashSet<>();
+	private Set<Curso> curso = new HashSet<>();
+	private Set<Mentoria> mentoria = new HashSet<>();
 	
-	
-	public Bootcamp(String nome, String descricao, String patrocinador, String area) {
+	public Bootcamp(String nome, String descricao, String patrocinador, String area, Set<Curso> curso, Set<Mentoria> mentoria) {
 		super();
 		this.nome = nome;
 		this.descricao = descricao;
@@ -28,23 +25,6 @@ public class Bootcamp extends Conteudo {
 		this.area = area;
 	}
 	
-
-
-
-	public Set<Conteudo> getConteudos() {
-		return conteudos;
-	}
-
-
-
-
-	public void setConteudos(Set<Conteudo> conteudos) {
-		this.conteudos = conteudos;
-	}
-
-
-
-
 	public String getArea() {
 		return area;
 	}
@@ -81,14 +61,28 @@ public class Bootcamp extends Conteudo {
 		return patrocinador;
 	}
 	
-	
-	
-	
-	
-	@Override
-	public double calculaXP() {
-	
-		return XP * 1.5;
+	public Set<Desenvolvedor> getDevsInscritos() {
+		return devsInscritos;
+	}
+
+	public void setDevsInscritos(Set<Desenvolvedor> devsInscritos) {
+		this.devsInscritos = devsInscritos;
+	}
+
+	public Set<Curso> getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Set<Curso> curso) {
+		this.curso = curso;
+	}
+
+	public Set<Mentoria> getMentoria() {
+		return mentoria;
+	}
+
+	public void setMentoria(Set<Mentoria> mentoria) {
+		this.mentoria = mentoria;
 	}
 
 }
